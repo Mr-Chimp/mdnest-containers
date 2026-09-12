@@ -2,8 +2,10 @@
 
 A thin build repo that publishes [mdnest](https://github.com/mahsanamin/mdnest)
 images to Docker Hub under [`dualfrostbeams`](https://hub.docker.com/u/dualfrostbeams).
+Upstream mdnest is distributed as source only and publishes no container images
+of its own — this repo exists to build them and publish the results automatically.
 
-This project is not related to mdnest  in any way
+**Unofficial build.** This project is not affiliated with mdnest or its author.
 
 ## Images produced
 
@@ -31,6 +33,16 @@ Tags mirror upstream release tags (e.g. `v4.5.1`). Platform: **linux/amd64 only*
 - Images are pushed with **no provenance/SBOM attestations** (plain manifests),
   matching upstream's own build behaviour and avoiding attestation-manifest
   quirks in older Podman — which is what consumes these images.
+
+## Required secrets
+
+The workflow needs two repo secrets (**Settings → Secrets and variables →
+Actions**):
+
+| Secret | Value |
+|---|---|
+| `DOCKERHUB_USERNAME` | Docker Hub username to publish under |
+| `DOCKERHUB_TOKEN` | Docker Hub [access token](https://hub.docker.com/settings/personal-access-tokens) with read/write access — never the account password |
 
 ## Caveats
 

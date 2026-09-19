@@ -7,9 +7,6 @@ name: Build mdnest images
 # tag and only changes when that pin is bumped deliberately.
 
 on:
-  schedule:
-    # Daily at 03:17 UTC — off the top-of-hour queue rush.
-    - cron: "17 3 * * *"
   workflow_dispatch:
     inputs:
       version:
